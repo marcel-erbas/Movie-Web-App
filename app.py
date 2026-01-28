@@ -15,7 +15,11 @@ def home():
     return "Welcome to Movie-Web-App!"
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(basedir, 'data/movies.db')}"
+data_dir = os.path.join(basedir, 'data')
+if not os.path.exists(data_dir):
+    os.makedirs(data_dir)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(data_dir, 'movies.db')}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 load_dotenv()
