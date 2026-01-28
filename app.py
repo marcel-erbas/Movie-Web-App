@@ -14,6 +14,11 @@ app = Flask(__name__)
 def home():
     return "Welcome to Movie-Web-App!"
 
+@app.route('/users')
+def list_users():
+    users = data_manager.get_users()
+    return str(users)  # Temporarily returning users as a string
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 data_dir = os.path.join(basedir, 'data')
 if not os.path.exists(data_dir):
