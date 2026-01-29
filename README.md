@@ -13,7 +13,7 @@ A Flask web application for managing users and their favorite movies, featuring 
 
 1.  **Install Dependencies:**
     ```bash
-    pip install flask flask-sqlalchemy requests python-dotenv
+    pip install -r requirements.txt
     ```
 
 2.  **Environment Variables:**
