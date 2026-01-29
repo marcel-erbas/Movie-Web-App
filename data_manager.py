@@ -6,9 +6,11 @@ class DataManager():
         try:
             db.session.add(new_user)
             db.session.commit()
+            return True
         except Exception as e:
             print(f"Error creating user: {e}")
             db.session.rollback()
+            return False
 
     def get_users(self):
         return User.query.all()
@@ -20,9 +22,11 @@ class DataManager():
         try:
             db.session.add(movie)
             db.session.commit()
+            return True
         except Exception as e:
             print(f"Error adding movie: {e}")
             db.session.rollback()
+            return False
 
     def update_movie(self, movie_id, new_title):
         movie = Movie.query.get(movie_id)
@@ -30,9 +34,12 @@ class DataManager():
             try:
                 movie.title = new_title
                 db.session.commit()
+                return True
             except Exception as e:
                 print(f"Error updating movie: {e}")
                 db.session.rollback()
+                return False
+        return False
 
     def delete_movie(self, movie_id):
         movie = Movie.query.get(movie_id)
@@ -40,8 +47,11 @@ class DataManager():
             try:
                 db.session.delete(movie)
                 db.session.commit()
+                return True
             except Exception as e:
                 print(f"Error deleting movie: {e}")
                 db.session.rollback()
+                return False
+        return False
 
     
