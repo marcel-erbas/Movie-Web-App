@@ -54,4 +54,20 @@ class DataManager():
                 return False
         return False
 
+    def delete_user(self, user_id):
+        user = User.query.get(user_id)
+        if user:
+            try:
+                # Delete all movies of the user first
+                Movie.query.filter_by(user_id=user_id).delete()
+                # Then delete the user
+                db.session.delete(user)
+                db.session.commit()
+                return True
+            except Exception as e:
+                print(f"Error deleting user: {e}")
+                db.session.rollback()
+                return False
+        return False
+
     

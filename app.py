@@ -84,6 +84,13 @@ def add_user():
     return redirect(url_for('home'))
 
 
+@app.route('/users/<int:user_id>/delete', methods=['POST'])
+def delete_user(user_id):
+    """Deletes a user and their movies."""
+    data_manager.delete_user(user_id)
+    return redirect(url_for('home'))
+
+
 # -------------------------------------------------------------------
 # Routes - Movie Management
 # -------------------------------------------------------------------
