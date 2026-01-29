@@ -1,4 +1,4 @@
-from click import clear
+
 import os
 import requests
 
@@ -38,7 +38,7 @@ data_manager = DataManager()
 
 
 # -------------------------------------------------------------------
-# Helper Functions
+# OMDB API Helper Function
 # -------------------------------------------------------------------
 
 def get_omdb_data(title, user_id):

@@ -1,0 +1,387 @@
+/* ------------------------------------------------------------------- */
+/* RESET & GLOBAL STYLES */
+/* ------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border_box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #141414;
+    /* Background */
+    color: #e5e5e5;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ------------------------------------------------------------------- */
+/* HEADER & NAVIGATION */
+/* ------------------------------------------------------------------- */
+header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
+    /* Gradient overlay */
+    padding: 20px 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: #3498db;
+    /* Movie Library Blue */
+    font-size: 4rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ------------------------------------------------------------------- */
+/* PAGE HEADER (Internal Pages) */
+/* ------------------------------------------------------------------- */
+.page-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 60px;
+    /* Slight increase for larger font */
+}
+
+.page-header h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    width: max-content;
+    font-size: 2.5rem;
+    /* Larger Title */
+    text-transform: uppercase;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-input {
+    background-color: #333;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px 20px;
+    /* Larger padding */
+    font-size: 1rem;
+    /* Larger font */
+    border-radius: 4px;
+    width: 250px;
+    /* Wider input */
+    transition: all 0.3s;
+}
+
+.header-input:focus {
+    outline: none;
+    background-color: #454545;
+    border-color: #8c8c8c;
+}
+
+.btn-header {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    /* Larger padding */
+    font-size: 1rem;
+    /* Larger font */
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-header:hover {
+    background-color: #1a5276;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #757575;
+    color: #e5e5e5;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: #fff;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ------------------------------------------------------------------- */
+/* LAYOUT */
+/* ------------------------------------------------------------------- */
+.container {
+    padding: 40px 4%;
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #757575;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* ------------------------------------------------------------------- */
+/* BUTTONS & FORMS */
+/* ------------------------------------------------------------------- */
+button,
+.btn {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+    display: inline-block;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #1a5276;
+}
+
+.btn-danger {
+    background-color: transparent;
+    border: 1px solid #757575;
+    color: #757575;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.btn-danger:hover {
+    border-color: #c0392b;
+    color: #c0392b;
+}
+
+input[type="text"] {
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1rem;
+    width: 300px;
+    margin-right: 10px;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid #8c8c8c;
+    background-color: #454545;
+}
+
+/* ------------------------------------------------------------------- */
+/* INDEX PAGE: PROFILE SELECTION */
+/* ------------------------------------------------------------------- */
+.profile-selection {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.profile-selection h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.user-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.user-entry {
+    text-align: center;
+    position: relative;
+}
+
+.profile-icon {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 50%;
+    /* Circular profile pics */
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid transparent;
+    /* Invisible border for hover state */
+    transition: border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Generate different gradients for "fake" profile distinctiveness */
+.user-entry:nth-child(1) .profile-icon {
+    background: #2980b9;
+}
+
+.user-entry:nth-child(2) .profile-icon {
+    background: #8e44ad;
+}
+
+.user-entry:nth-child(3) .profile-icon {
+    background: #27ae60;
+    opacity: 0.8;
+}
+
+.user-entry:nth-child(odd) .profile-icon {
+    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+}
+
+.user-entry:nth-child(even) .profile-icon {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.user-entry:hover .profile-icon {
+    border-color: #fff;
+}
+
+.profile-name {
+    color: #808080;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    text-decoration: none;
+    display: block;
+}
+
+.user-entry:hover .profile-name {
+    color: #fff;
+}
+
+.add-user-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ------------------------------------------------------------------- */
+/* MOVIES PAGE: GRID LAYOUT */
+/* ------------------------------------------------------------------- */
+/* .add-movie-section removed as it is now in header */
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    /* Small gap like Netflix */
+}
+
+.movie-card {
+    background-color: #2f2f2f;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, z-index 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: scale(1.1);
+    /* Zoom effect */
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-info {
+    padding: 10px;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
+    transition: opacity 0.3s;
+}
+
+.movie-card:hover .movie-info {
+    opacity: 1;
+}
+
+.movie-info h3 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.movie-info p {
+    font-size: 0.7rem;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.movie-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    background-color: #2980b9;
+}
+
+.btn-danger {
+    background-color: #c0392b;
+    /* Constant Red Background */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    margin-left: 0;
+    /* Remove margin as gap handles it */
+}
+
+.btn-danger:hover {
+    background-color: #a93226;
+    color: white;
+}
+
+.update-form input {
+    display: none;
+    /* Hide input to clean up UI, title update might need a separate flow or be hidden */
+}
